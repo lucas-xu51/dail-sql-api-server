@@ -1,0 +1,1820 @@
+{
+  "original_zip": "DAIL-SQL_server.zip",
+  "cleaned_zip": "DAIL-SQL_server_cleaned_code.zip",
+  "kept_count": 32,
+  "removed_count": 418,
+  "kept_uncompressed_bytes": 53084650,
+  "removed_uncompressed_bytes": 502113900,
+  "missing_masked_cache_in_original": true,
+  "checks": {
+    "api_server.py": true,
+    "plugin_endpoint_dependencies": true,
+    "spider_training_file": true,
+    "spider_training_links": true,
+    "CoreNLP_external_required": true
+  },
+  "kept": [
+    {
+      "path": ".env.example",
+      "size_bytes": 535
+    },
+    {
+      "path": ".gitignore",
+      "size_bytes": 637
+    },
+    {
+      "path": "api_server.py",
+      "size_bytes": 83873
+    },
+    {
+      "path": "create_masked_cache.py",
+      "size_bytes": 8936
+    },
+    {
+      "path": "dataset/custom_databases/custom_tables.json",
+      "size_bytes": 2
+    },
+    {
+      "path": "dataset/spider/enc/train_schema-linking.jsonl",
+      "size_bytes": 27776748
+    },
+    {
+      "path": "dataset/spider/train_spider.json",
+      "size_bytes": 24928884
+    },
+    {
+      "path": "LICENSE.txt",
+      "size_bytes": 10464
+    },
+    {
+      "path": "llm/chatgpt.py",
+      "size_bytes": 5499
+    },
+    {
+      "path": "prompt/ExampleFormatTemplate.py",
+      "size_bytes": 2189
+    },
+    {
+      "path": "prompt/ExampleSelectorTemplate.py",
+      "size_bytes": 31023
+    },
+    {
+      "path": "prompt/PromptICLTemplate.py",
+      "size_bytes": 4167
+    },
+    {
+      "path": "prompt/PromptReprTemplate.py",
+      "size_bytes": 27375
+    },
+    {
+      "path": "prompt/prompt_builder.py",
+      "size_bytes": 6250
+    },
+    {
+      "path": "README.md",
+      "size_bytes": 1814
+    },
+    {
+      "path": "requirements-api.txt",
+      "size_bytes": 262
+    },
+    {
+      "path": "requirements.txt",
+      "size_bytes": 144
+    },
+    {
+      "path": "test_validation/schema_loader.py",
+      "size_bytes": 3421
+    },
+    {
+      "path": "test_validation/sql_validator_v2.py",
+      "size_bytes": 77266
+    },
+    {
+      "path": "test_validation/__init__.py",
+      "size_bytes": 217
+    },
+    {
+      "path": "utils/datasets/spider.py",
+      "size_bytes": 5138
+    },
+    {
+      "path": "utils/data_builder.py",
+      "size_bytes": 11745
+    },
+    {
+      "path": "utils/enums.py",
+      "size_bytes": 3006
+    },
+    {
+      "path": "utils/linking_process.py",
+      "size_bytes": 13458
+    },
+    {
+      "path": "utils/linking_utils/abstract_preproc.py",
+      "size_bytes": 1416
+    },
+    {
+      "path": "utils/linking_utils/application.py",
+      "size_bytes": 5321
+    },
+    {
+      "path": "utils/linking_utils/corenlp.py",
+      "size_bytes": 2815
+    },
+    {
+      "path": "utils/linking_utils/serialization.py",
+      "size_bytes": 575
+    },
+    {
+      "path": "utils/linking_utils/spider_match_utils.py",
+      "size_bytes": 11763
+    },
+    {
+      "path": "utils/post_process.py",
+      "size_bytes": 8925
+    },
+    {
+      "path": "utils/pretrained_embeddings.py",
+      "size_bytes": 7264
+    },
+    {
+      "path": "utils/utils.py",
+      "size_bytes": 43518
+    }
+  ],
+  "excluded": [
+    {
+      "path": ".env",
+      "size_bytes": 179
+    },
+    {
+      "path": ".git/COMMIT_EDITMSG",
+      "size_bytes": 18
+    },
+    {
+      "path": ".git/config",
+      "size_bytes": 308
+    },
+    {
+      "path": ".git/description",
+      "size_bytes": 73
+    },
+    {
+      "path": ".git/FETCH_HEAD",
+      "size_bytes": 105
+    },
+    {
+      "path": ".git/HEAD",
+      "size_bytes": 21
+    },
+    {
+      "path": ".git/hooks/applypatch-msg.sample",
+      "size_bytes": 478
+    },
+    {
+      "path": ".git/hooks/commit-msg.sample",
+      "size_bytes": 896
+    },
+    {
+      "path": ".git/hooks/fsmonitor-watchman.sample",
+      "size_bytes": 4726
+    },
+    {
+      "path": ".git/hooks/post-update.sample",
+      "size_bytes": 189
+    },
+    {
+      "path": ".git/hooks/pre-applypatch.sample",
+      "size_bytes": 424
+    },
+    {
+      "path": ".git/hooks/pre-commit.sample",
+      "size_bytes": 1649
+    },
+    {
+      "path": ".git/hooks/pre-merge-commit.sample",
+      "size_bytes": 416
+    },
+    {
+      "path": ".git/hooks/pre-push.sample",
+      "size_bytes": 1374
+    },
+    {
+      "path": ".git/hooks/pre-rebase.sample",
+      "size_bytes": 4898
+    },
+    {
+      "path": ".git/hooks/pre-receive.sample",
+      "size_bytes": 544
+    },
+    {
+      "path": ".git/hooks/prepare-commit-msg.sample",
+      "size_bytes": 1492
+    },
+    {
+      "path": ".git/hooks/push-to-checkout.sample",
+      "size_bytes": 2783
+    },
+    {
+      "path": ".git/hooks/sendemail-validate.sample",
+      "size_bytes": 2308
+    },
+    {
+      "path": ".git/hooks/update.sample",
+      "size_bytes": 3650
+    },
+    {
+      "path": ".git/index",
+      "size_bytes": 12541
+    },
+    {
+      "path": ".git/info/exclude",
+      "size_bytes": 240
+    },
+    {
+      "path": ".git/logs/HEAD",
+      "size_bytes": 1025
+    },
+    {
+      "path": ".git/logs/refs/heads/main",
+      "size_bytes": 839
+    },
+    {
+      "path": ".git/logs/refs/remotes/origin/main",
+      "size_bytes": 652
+    },
+    {
+      "path": ".git/objects/00/d71aca002de384da913b38836e5dc5a9cad3a1",
+      "size_bytes": 1487
+    },
+    {
+      "path": ".git/objects/01/f110097bfe155646e5b3d5479c14d425070ec7",
+      "size_bytes": 460
+    },
+    {
+      "path": ".git/objects/04/bd6f7425adc936343d019c9e3265e7687d889c",
+      "size_bytes": 1457
+    },
+    {
+      "path": ".git/objects/05/a189c4cb9694262618e4003701266c942a4dd2",
+      "size_bytes": 190
+    },
+    {
+      "path": ".git/objects/06/54044d1b521f0f10e1dadd26f3f107816657f5",
+      "size_bytes": 1140
+    },
+    {
+      "path": ".git/objects/07/e9909031670ef0d8323fbf0a71f6a113183111",
+      "size_bytes": 1177
+    },
+    {
+      "path": ".git/objects/08/c190e19a028318aa378e0e2859588139bccab3",
+      "size_bytes": 735
+    },
+    {
+      "path": ".git/objects/09/2e611a816dbc4cdecd7e0592a2b34ed746132d",
+      "size_bytes": 414
+    },
+    {
+      "path": ".git/objects/0a/08c5da43f11ee5dba18fb1fb5fc532cd2d8853",
+      "size_bytes": 110
+    },
+    {
+      "path": ".git/objects/0b/6bd25035ebc19e775d17724e58255548aadaba",
+      "size_bytes": 414
+    },
+    {
+      "path": ".git/objects/0c/5705019cac4112e07495292fdf4eb16a629e0c",
+      "size_bytes": 135
+    },
+    {
+      "path": ".git/objects/0c/9291301a86f6ed101d6ab0b7aba202686ed835",
+      "size_bytes": 267
+    },
+    {
+      "path": ".git/objects/0c/d8266ec0b07c0bf48d5c568fa1c35b99b4f425",
+      "size_bytes": 2237
+    },
+    {
+      "path": ".git/objects/0f/6cb412fa1a8d90c18f2f98d90a8b5bef824725",
+      "size_bytes": 263766
+    },
+    {
+      "path": ".git/objects/0f/c2753abfb439b607b80ad668a929685aa71fae",
+      "size_bytes": 834
+    },
+    {
+      "path": ".git/objects/10/e69e735478fde828cb95e6375447361eca666b",
+      "size_bytes": 1558
+    },
+    {
+      "path": ".git/objects/11/b078b3491faffc6ee30fbf704aa238cd982550",
+      "size_bytes": 835
+    },
+    {
+      "path": ".git/objects/12/ce3764422bc36023d0d94eb3d472ba94e35468",
+      "size_bytes": 1896
+    },
+    {
+      "path": ".git/objects/14/0941308c98866cb54b513a38dac03ab586a392",
+      "size_bytes": 4300
+    },
+    {
+      "path": ".git/objects/1a/fdbd63f19cdbc05b4214e7b5dc83ebb0f5de04",
+      "size_bytes": 672
+    },
+    {
+      "path": ".git/objects/1b/ca73b68ddd7f8ab3c273f8f80005a16866e0f2",
+      "size_bytes": 8241
+    },
+    {
+      "path": ".git/objects/1f/9289efd3a9997f30d68c1d59ff2bf43a99c7af",
+      "size_bytes": 326
+    },
+    {
+      "path": ".git/objects/20/775ae78bf90cad9524d44e85ff50660532b33e",
+      "size_bytes": 313
+    },
+    {
+      "path": ".git/objects/22/3358c7a2637f0b849fe99e7a631f021ba59b5c",
+      "size_bytes": 384
+    },
+    {
+      "path": ".git/objects/23/3d78b5d7dd06c9480428a9ce29047fb8392083",
+      "size_bytes": 3942
+    },
+    {
+      "path": ".git/objects/24/c4edb83bd9ac3c21d3b024fb12bf818cb1e3de",
+      "size_bytes": 155
+    },
+    {
+      "path": ".git/objects/26/f70d5c323b235d2a7d08ddd123045636680415",
+      "size_bytes": 398
+    },
+    {
+      "path": ".git/objects/28/24158305c520cc5fc86d9d8618df4a2fb804e5",
+      "size_bytes": 1502
+    },
+    {
+      "path": ".git/objects/28/57e9ee57a064d791b1f376595322b95ec1614a",
+      "size_bytes": 51521
+    },
+    {
+      "path": ".git/objects/2a/1249385b85c16d21e77e41552bd6c9c598ccec",
+      "size_bytes": 46
+    },
+    {
+      "path": ".git/objects/2a/a32a5c7708f64e5360daf45941d8476b91b823",
+      "size_bytes": 1659
+    },
+    {
+      "path": ".git/objects/2c/c3cbb6d0468d8ceac85a46d3db166db632b829",
+      "size_bytes": 459
+    },
+    {
+      "path": ".git/objects/2c/cdbfa2941f63d3a0a8699a47679f5f487b129e",
+      "size_bytes": 237
+    },
+    {
+      "path": ".git/objects/2f/53512fa27a6455a18ae1b101bd87e7633b42c1",
+      "size_bytes": 20127
+    },
+    {
+      "path": ".git/objects/31/4a1968a27a748f076158f99ed898ce51bd94e7",
+      "size_bytes": 960
+    },
+    {
+      "path": ".git/objects/33/2abde306c5fb4fecfdaf80387dbc9b9657cc51",
+      "size_bytes": 882
+    },
+    {
+      "path": ".git/objects/35/2568497521f973765cc9f2a29320ebc1aa9e1e",
+      "size_bytes": 4001
+    },
+    {
+      "path": ".git/objects/35/7645b14dbb7d422179bf0960d331dd7c176ac2",
+      "size_bytes": 20042380
+    },
+    {
+      "path": ".git/objects/35/c5c438a7b4a9ed4ea7f1802c919b51c075d8a6",
+      "size_bytes": 214
+    },
+    {
+      "path": ".git/objects/37/a35f8ab6469e4ae177c8e4a2d470c108bb41d5",
+      "size_bytes": 3295
+    },
+    {
+      "path": ".git/objects/38/70671fd6e8b012514c6494f6872777c46ec601",
+      "size_bytes": 1777
+    },
+    {
+      "path": ".git/objects/3a/d36c5ffc87c2379383426db5bf632c4639c35b",
+      "size_bytes": 3287
+    },
+    {
+      "path": ".git/objects/41/4403da6e4f9025191413f1b3f3f9ab918fe243",
+      "size_bytes": 149
+    },
+    {
+      "path": ".git/objects/41/b11065b773164bfd03499183c881b99b8cbb5d",
+      "size_bytes": 1978
+    },
+    {
+      "path": ".git/objects/42/70f86aa6a65753114de95736decadfdcd81956",
+      "size_bytes": 2027
+    },
+    {
+      "path": ".git/objects/42/7d6f0dcd335ff7f1e1f8090f9b3a98a15b2111",
+      "size_bytes": 5916
+    },
+    {
+      "path": ".git/objects/42/998409a651c4d2c4ce9336e836ee1399bfdab0",
+      "size_bytes": 63
+    },
+    {
+      "path": ".git/objects/4b/b77a8cadffc82a276628edda428363f67eb142",
+      "size_bytes": 1286
+    },
+    {
+      "path": ".git/objects/51/904539d9d8abbe12a6ce2d7c66fbfb17612ce4",
+      "size_bytes": 24487858
+    },
+    {
+      "path": ".git/objects/52/b2b6ba24c6e6b8491d3255b0611ab8045be2f4",
+      "size_bytes": 2215
+    },
+    {
+      "path": ".git/objects/54/9b89eb9d8c5b0c5147784204a34d08b88d7f7b",
+      "size_bytes": 1102
+    },
+    {
+      "path": ".git/objects/56/4dbc68c0da3ad616abe2fe92eea5c52f3fcd1d",
+      "size_bytes": 1091
+    },
+    {
+      "path": ".git/objects/56/e5357f55e01dc4693dd5ca7b13ebad03bbfc5d",
+      "size_bytes": 11456
+    },
+    {
+      "path": ".git/objects/57/2163bc33f26fd3908b917fb651091a41551d80",
+      "size_bytes": 3848
+    },
+    {
+      "path": ".git/objects/57/90883cbb5af53e87718eaa5e68f3778d57d7dc",
+      "size_bytes": 837
+    },
+    {
+      "path": ".git/objects/58/98a4f09b49a2a601f92f7ee6de70d6ae8ae60f",
+      "size_bytes": 1424
+    },
+    {
+      "path": ".git/objects/59/1ba39722b406587a64e18cc9c0783a9447f28a",
+      "size_bytes": 797
+    },
+    {
+      "path": ".git/objects/59/725b2d360c3860920ad7ca121b670f9a29dbf5",
+      "size_bytes": 19042
+    },
+    {
+      "path": ".git/objects/5a/f6fd1243f5586e727edff61399b14dad338e65",
+      "size_bytes": 7231
+    },
+    {
+      "path": ".git/objects/5b/2e1838752a622670ee4d2da7d9d7a237b08f0f",
+      "size_bytes": 524
+    },
+    {
+      "path": ".git/objects/5b/917313ddb4072e4f3c0e3e77cf8b3fa4712a1b",
+      "size_bytes": 325
+    },
+    {
+      "path": ".git/objects/5e/cdf027e3996d57325de12f6985759ade873de2",
+      "size_bytes": 438
+    },
+    {
+      "path": ".git/objects/5f/cb7bef26240aed532b2014da24dc051b1fb207",
+      "size_bytes": 3061
+    },
+    {
+      "path": ".git/objects/60/0df5fec3afc74857f02eb6aeade7c55041ed1f",
+      "size_bytes": 1132
+    },
+    {
+      "path": ".git/objects/62/c596ed86a28930d3949c125edd9d0f7c65c56f",
+      "size_bytes": 380
+    },
+    {
+      "path": ".git/objects/65/f73dcd65f043e79818f7a124d24b6250f7a9bf",
+      "size_bytes": 1110
+    },
+    {
+      "path": ".git/objects/66/01b94b548a8a129b28213e7ad27a2215a71b39",
+      "size_bytes": 5153
+    },
+    {
+      "path": ".git/objects/67/7cae7fa90ae958cfbe1d6e5cdd7be152010646",
+      "size_bytes": 2343
+    },
+    {
+      "path": ".git/objects/68/872f983b5cc15e8a24644395ec62c1a5d062d9",
+      "size_bytes": 1561
+    },
+    {
+      "path": ".git/objects/6c/6de87a178d16dfb8bab40509abdd178a7bf0b3",
+      "size_bytes": 15473
+    },
+    {
+      "path": ".git/objects/6c/e1c558236ea41d504182ebf94ab01dad87ee4b",
+      "size_bytes": 92
+    },
+    {
+      "path": ".git/objects/6d/d9ea654b3d87bba1a9cede0c8d536221ee6054",
+      "size_bytes": 284
+    },
+    {
+      "path": ".git/objects/6d/fa664e65c3c17d38af9e7b2d69a9b9d7cea73e",
+      "size_bytes": 14332
+    },
+    {
+      "path": ".git/objects/6e/abb99d20f3d5725eeaa118d3d8b5135f6774d0",
+      "size_bytes": 15187
+    },
+    {
+      "path": ".git/objects/73/8e5d2d42e0afe6c675989df7a9c36a2380e83f",
+      "size_bytes": 54
+    },
+    {
+      "path": ".git/objects/74/6fac1f41a2f2b4dd71e2aac0360f22410f2eba",
+      "size_bytes": 21211
+    },
+    {
+      "path": ".git/objects/74/c16eda08d824811313e4dfcce57b9f75dc56be",
+      "size_bytes": 375
+    },
+    {
+      "path": ".git/objects/77/b249e9e070de04feb6f1a1ead6311b958e2d1f",
+      "size_bytes": 1540
+    },
+    {
+      "path": ".git/objects/77/ba29da9076072d046b92f33144a19f81ce731c",
+      "size_bytes": 279
+    },
+    {
+      "path": ".git/objects/79/a97cba1318872df5dc0e70636f524511bd0bf2",
+      "size_bytes": 421
+    },
+    {
+      "path": ".git/objects/7a/8238f5ce430fc7730065f14a5405abf44000da",
+      "size_bytes": 5445
+    },
+    {
+      "path": ".git/objects/7a/98b0c8b95df24eccfd983ff48ac4580bb6a28a",
+      "size_bytes": 1320
+    },
+    {
+      "path": ".git/objects/7b/5514f4f5d78dde706ff9c0ecb22c32e4365d54",
+      "size_bytes": 4124
+    },
+    {
+      "path": ".git/objects/7c/8f48683c0a6b08ab4380e93d3bbc32c2767bf5",
+      "size_bytes": 68976
+    },
+    {
+      "path": ".git/objects/80/f57a7e35654dca20aacc3e28cabde7c540387f",
+      "size_bytes": 82357
+    },
+    {
+      "path": ".git/objects/83/e1c51b607b745a20ccad547ca8f13677264e8d",
+      "size_bytes": 21802
+    },
+    {
+      "path": ".git/objects/83/e7eafb24dd3a4e198dbfbac1709f7b83800a5f",
+      "size_bytes": 7608
+    },
+    {
+      "path": ".git/objects/84/c0348224fae30ab7fe2efd16e67e44f8ec10fe",
+      "size_bytes": 225
+    },
+    {
+      "path": ".git/objects/85/d88cf9a7531ca8f6f2a149c544c26d527746e2",
+      "size_bytes": 207
+    },
+    {
+      "path": ".git/objects/86/c57db0aec3905d5ea71234889fd8f8b5e530b8",
+      "size_bytes": 305
+    },
+    {
+      "path": ".git/objects/89/c3ffb8335162e3908917bfdfc511693fc81ad6",
+      "size_bytes": 1408
+    },
+    {
+      "path": ".git/objects/8a/9e7c9e5a3af9eccd321f18667200f48282117e",
+      "size_bytes": 3915
+    },
+    {
+      "path": ".git/objects/8e/7bdb21f60e82b2532ac7a526cef83535cb2b56",
+      "size_bytes": 4684
+    },
+    {
+      "path": ".git/objects/8f/28de52c44eb51950b0d1fe29a3a4b98895b027",
+      "size_bytes": 1679
+    },
+    {
+      "path": ".git/objects/91/4a62d742117728d2909954b9fa88fa3c81ce9e",
+      "size_bytes": 144167
+    },
+    {
+      "path": ".git/objects/91/92fc2fe1c425e5692f83c09d2a52043c9c3c5a",
+      "size_bytes": 1141
+    },
+    {
+      "path": ".git/objects/91/d6f88f53ad6c2996202585d50dddbba2bc975f",
+      "size_bytes": 2106
+    },
+    {
+      "path": ".git/objects/94/8de9f6e3fd8581e3d732c471c1199b7caab462",
+      "size_bytes": 1178
+    },
+    {
+      "path": ".git/objects/94/a9e806a792742b146e2bca0322b4a3cfb6835c",
+      "size_bytes": 1324
+    },
+    {
+      "path": ".git/objects/95/624e149dd69aa8f3ff628854ef426e181972d9",
+      "size_bytes": 174
+    },
+    {
+      "path": ".git/objects/96/6ae9fbe9d34f93791981bc05398d04929d5291",
+      "size_bytes": 2753
+    },
+    {
+      "path": ".git/objects/97/37ffe588b036c20aa1035799cf779dcca94577",
+      "size_bytes": 6619
+    },
+    {
+      "path": ".git/objects/98/6be09b2cb3f044deca65ebf21e49bdbf80a3f9",
+      "size_bytes": 431
+    },
+    {
+      "path": ".git/objects/98/8253e81aca12b4c007efb8fea144842d320019",
+      "size_bytes": 2391
+    },
+    {
+      "path": ".git/objects/99/6d3da45ff50a4b6defe76aa4294e13da04280a",
+      "size_bytes": 2370
+    },
+    {
+      "path": ".git/objects/99/852e8e6cb1ef3104167f3f7da81157d384dc82",
+      "size_bytes": 992
+    },
+    {
+      "path": ".git/objects/99/d5b98b194f9435e7ec873cc015fff6a3a20deb",
+      "size_bytes": 176
+    },
+    {
+      "path": ".git/objects/9a/17ec38767f2e467337863f701620974c991d1e",
+      "size_bytes": 3195
+    },
+    {
+      "path": ".git/objects/9c/b4934a08bcda4f8701cda7185b62cc4df95da9",
+      "size_bytes": 5536
+    },
+    {
+      "path": ".git/objects/a0/1d5e2e73c6d9f31f50eaf5b8333badd137ab82",
+      "size_bytes": 574
+    },
+    {
+      "path": ".git/objects/a0/2668e3c202f79302ce1a615bfe4cc1a2fc8c54",
+      "size_bytes": 149409
+    },
+    {
+      "path": ".git/objects/a0/b1e059b69c9b73475dba935beb39080e9375ef",
+      "size_bytes": 6232
+    },
+    {
+      "path": ".git/objects/a0/ff989f042a618d09f72a7dca9d7983503f3984",
+      "size_bytes": 54
+    },
+    {
+      "path": ".git/objects/a2/95995e24955859750f7733d47f624db376fad6",
+      "size_bytes": 3940
+    },
+    {
+      "path": ".git/objects/a3/7095853ad8559ee901b4a9d839b74479340e62",
+      "size_bytes": 518
+    },
+    {
+      "path": ".git/objects/a3/8203d0889005d92b80c717436143850696984a",
+      "size_bytes": 3511
+    },
+    {
+      "path": ".git/objects/af/ce0d47639199af3cbe445557044c5f59ebf3b7",
+      "size_bytes": 21320
+    },
+    {
+      "path": ".git/objects/b2/295c91c34ea18c422fe16189ed3ade92a47209",
+      "size_bytes": 166
+    },
+    {
+      "path": ".git/objects/b3/93002fa09a837d0ff64aafe43ddbeb3e7231ac",
+      "size_bytes": 28052
+    },
+    {
+      "path": ".git/objects/b4/03cd6c66a8971c6bbfaab0ce39686f172011ab",
+      "size_bytes": 1140
+    },
+    {
+      "path": ".git/objects/b4/9d5af44c8b22b91c9e5d82489e76e8ceea74aa",
+      "size_bytes": 3036
+    },
+    {
+      "path": ".git/objects/b8/54121ed5a8d84365dd4925570dfef3d6b1ef12",
+      "size_bytes": 1123
+    },
+    {
+      "path": ".git/objects/b9/b1e5be6531fd78f74606f38b0686de069ffe96",
+      "size_bytes": 4082
+    },
+    {
+      "path": ".git/objects/bb/af29a38bda82572fc0ab98db610e8a5efae86d",
+      "size_bytes": 117
+    },
+    {
+      "path": ".git/objects/bc/0f086850834402de44377db2f43448d024038c",
+      "size_bytes": 1633
+    },
+    {
+      "path": ".git/objects/bc/e42a9a57c3f0ad4d189fcc169da1cf2315c1e4",
+      "size_bytes": 1674
+    },
+    {
+      "path": ".git/objects/bf/8e1c9b76c1c60cf3d0696cfed1bc67fb9e2644",
+      "size_bytes": 1140
+    },
+    {
+      "path": ".git/objects/c0/7e37160b57e2eb20c44e313d69fd46812cb10e",
+      "size_bytes": 343
+    },
+    {
+      "path": ".git/objects/c0/d875c7094725eab14faf7c401388960efcdcbe",
+      "size_bytes": 2839
+    },
+    {
+      "path": ".git/objects/c1/d10e7c4c26e13b211a45db970e45f35433c5c2",
+      "size_bytes": 64
+    },
+    {
+      "path": ".git/objects/c2/c0c076c55e478dd298632db7a2e930e634b48c",
+      "size_bytes": 1305
+    },
+    {
+      "path": ".git/objects/c3/1e195497d266b75cf296ad2379395243605630",
+      "size_bytes": 484
+    },
+    {
+      "path": ".git/objects/c3/2e3f89bfcbd862770850aecf3f1cfe13096e88",
+      "size_bytes": 132
+    },
+    {
+      "path": ".git/objects/c7/9da69aa745b0221cc682dd8b1acf3c62e175a8",
+      "size_bytes": 344
+    },
+    {
+      "path": ".git/objects/cc/d62098ce8ec28f73194fe1b904489556774c72",
+      "size_bytes": 101
+    },
+    {
+      "path": ".git/objects/ce/5cf11b77ac42e6458f742fb03b4ed1c4616b84",
+      "size_bytes": 1178
+    },
+    {
+      "path": ".git/objects/cf/c81df6f0961fe1ddc7332748c03756f06900ca",
+      "size_bytes": 189
+    },
+    {
+      "path": ".git/objects/d0/6f59fa5bc2b39c3912038605450109a2617015",
+      "size_bytes": 580
+    },
+    {
+      "path": ".git/objects/d1/00e20f39a95ada8ac51159c8c2e8b5bac9d8c5",
+      "size_bytes": 591
+    },
+    {
+      "path": ".git/objects/d1/c0134cb87c02d21ac5ee1aa40ee1f7ed788e88",
+      "size_bytes": 3900
+    },
+    {
+      "path": ".git/objects/d4/4f392e87d5440db9f748a8148ca30b3b45bfaa",
+      "size_bytes": 96
+    },
+    {
+      "path": ".git/objects/d6/1ad23fa21c45618e9d4b89353f985cd8e167db",
+      "size_bytes": 16116
+    },
+    {
+      "path": ".git/objects/d9/7ed62f7daf2d20ab97366ee5e39c32d542a453",
+      "size_bytes": 125369
+    },
+    {
+      "path": ".git/objects/da/c92f4268e9e62257c062379d9641609c1abc8a",
+      "size_bytes": 3221
+    },
+    {
+      "path": ".git/objects/de/51693a2fa8370ddb74921a7f8a154ae0bbc70e",
+      "size_bytes": 3620
+    },
+    {
+      "path": ".git/objects/de/c8126422448f5f7057036de8aa6509990c6474",
+      "size_bytes": 1268
+    },
+    {
+      "path": ".git/objects/df/6a8fcb11401970be0b9c9f7428a706ee69ad6e",
+      "size_bytes": 135
+    },
+    {
+      "path": ".git/objects/e1/206e1e332c0f75dd84d2e4265521447eeadb70",
+      "size_bytes": 52042
+    },
+    {
+      "path": ".git/objects/e3/02bc3a5056c50a56f6133960b2f1a4f86f1508",
+      "size_bytes": 6229
+    },
+    {
+      "path": ".git/objects/e3/992b1d13e39cdb7e894e01dae8b6f4cd29e5fc",
+      "size_bytes": 1333
+    },
+    {
+      "path": ".git/objects/e4/602d8fd75577413b98f991082e706fe6c97da4",
+      "size_bytes": 207
+    },
+    {
+      "path": ".git/objects/e6/9de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size_bytes": 15
+    },
+    {
+      "path": ".git/objects/e9/03fa0fa2e94451025de59a6e09907a20166d11",
+      "size_bytes": 1026
+    },
+    {
+      "path": ".git/objects/eb/3a3377866dd788a2e27d3bc2813fbaa7d5457b",
+      "size_bytes": 385
+    },
+    {
+      "path": ".git/objects/ef/adf2f4766f9824478693968c3e4af4ca532239",
+      "size_bytes": 145886
+    },
+    {
+      "path": ".git/objects/f0/ea53fe6f0d2cceb86a7f8d21d15194159241a9",
+      "size_bytes": 812
+    },
+    {
+      "path": ".git/objects/f5/390322c1a42e4817f01d20f2ff8b9eed9abc38",
+      "size_bytes": 55
+    },
+    {
+      "path": ".git/objects/f6/7c4bcb3a6ba4b707e3e49de36afe9f613e2794",
+      "size_bytes": 19981
+    },
+    {
+      "path": ".git/objects/fb/152855f84205c0edd0f4820e5e55c58acd6fbe",
+      "size_bytes": 58
+    },
+    {
+      "path": ".git/objects/fd/dd43caab1960c6fb16870cce4b51fd799d0eb4",
+      "size_bytes": 31
+    },
+    {
+      "path": ".git/ORIG_HEAD",
+      "size_bytes": 41
+    },
+    {
+      "path": ".git/refs/agents/ddf6d7d8-395d-4c54-bbac-61a57442d8a6/checkpoints/turn/0",
+      "size_bytes": 41
+    },
+    {
+      "path": ".git/refs/heads/main",
+      "size_bytes": 41
+    },
+    {
+      "path": ".git/refs/remotes/origin/main",
+      "size_bytes": 41
+    },
+    {
+      "path": ".github/modernize/java-upgrade/.gitignore",
+      "size_bytes": 6
+    },
+    {
+      "path": ".github/modernize/java-upgrade/hooks/scripts/recordToolUse.ps1",
+      "size_bytes": 695
+    },
+    {
+      "path": ".github/modernize/java-upgrade/hooks/scripts/recordToolUse.sh",
+      "size_bytes": 608
+    },
+    {
+      "path": "ask_llm.py",
+      "size_bytes": 5115
+    },
+    {
+      "path": "ask_llm_optimized_retry.py",
+      "size_bytes": 14221
+    },
+    {
+      "path": "ask_llm_with_autofix.py",
+      "size_bytes": 17193
+    },
+    {
+      "path": "ask_llm_with_validation.py",
+      "size_bytes": 13815
+    },
+    {
+      "path": "create_simple_cache.py",
+      "size_bytes": 2371
+    },
+    {
+      "path": "dail-sql.yml",
+      "size_bytes": 3540
+    },
+    {
+      "path": "dataset/local_fewshots.json",
+      "size_bytes": 750
+    },
+    {
+      "path": "dataset/spider/enc/test_schema-linking.jsonl",
+      "size_bytes": 2772341
+    },
+    {
+      "path": "data_preprocess.py",
+      "size_bytes": 11336
+    },
+    {
+      "path": "embedding_cache/sentence_transformers_all_mpnet_base_v2_EuclideanDistanceQuestionMaskSelector_891ea57a_embeddings.npy",
+      "size_bytes": 26600576
+    },
+    {
+      "path": "embedding_cache/sentence_transformers_all_mpnet_base_v2_EuclideanDistanceQuestionMaskSelector_891ea57a_metadata.json",
+      "size_bytes": 376
+    },
+    {
+      "path": "embedding_cache/sentence_transformers_all_mpnet_base_v2_EuclideanDistanceQuestionMaskSelector_891ea57a_questions.json",
+      "size_bytes": 641202
+    },
+    {
+      "path": "embedding_cache_manager.py",
+      "size_bytes": 0
+    },
+    {
+      "path": "generate_question.py",
+      "size_bytes": 8303
+    },
+    {
+      "path": "llm/__pycache__/chatgpt.cpython-312.pyc",
+      "size_bytes": 5733
+    },
+    {
+      "path": "llm/__pycache__/chatgpt.cpython-38.pyc",
+      "size_bytes": 3374
+    },
+    {
+      "path": "mysql_config.json",
+      "size_bytes": 344
+    },
+    {
+      "path": "prompt/caculate_total_token.py",
+      "size_bytes": 817
+    },
+    {
+      "path": "prompt/extractExampleFromSqlite.py",
+      "size_bytes": 1191
+    },
+    {
+      "path": "prompt/__pycache__/ExampleFormatTemplate.cpython-312.pyc",
+      "size_bytes": 4095
+    },
+    {
+      "path": "prompt/__pycache__/ExampleFormatTemplate.cpython-38.pyc",
+      "size_bytes": 3575
+    },
+    {
+      "path": "prompt/__pycache__/ExampleSelectorTemplate.cpython-312.pyc",
+      "size_bytes": 26379
+    },
+    {
+      "path": "prompt/__pycache__/ExampleSelectorTemplate.cpython-38.pyc",
+      "size_bytes": 25995
+    },
+    {
+      "path": "prompt/__pycache__/PromptICLTemplate.cpython-312.pyc",
+      "size_bytes": 5069
+    },
+    {
+      "path": "prompt/__pycache__/PromptICLTemplate.cpython-38.pyc",
+      "size_bytes": 3557
+    },
+    {
+      "path": "prompt/__pycache__/PromptReprTemplate.cpython-312.pyc",
+      "size_bytes": 26460
+    },
+    {
+      "path": "prompt/__pycache__/PromptReprTemplate.cpython-38.pyc",
+      "size_bytes": 18791
+    },
+    {
+      "path": "prompt/__pycache__/prompt_builder.cpython-312.pyc",
+      "size_bytes": 7824
+    },
+    {
+      "path": "prompt/__pycache__/prompt_builder.cpython-38.pyc",
+      "size_bytes": 4969
+    },
+    {
+      "path": "results/BIRD_WITH_EVIDENCE-TEST_SQL_7-SHOT_EUCDISMASKPRESKLSIMTHR_QA-EXAMPLE_CTX-150_ANS-4096_TH-0.8.txt",
+      "size_bytes": 942530
+    },
+    {
+      "path": "results/BIRD_WITH_EVIDENCE-TEST_SQL_7-SHOT_EUCDISMASKPRESKLSIMTHR_QA-EXAMPLE_CTX-150_ANS-4096_TH-0.85.txt",
+      "size_bytes": 977925
+    },
+    {
+      "path": "results/BIRD_WITH_EVIDENCE-TEST_SQL_7-SHOT_EUCDISQUESTIONMASK_QA-EXAMPLE_CTX-150_ANS-4096.txt",
+      "size_bytes": 1042610
+    },
+    {
+      "path": "results/BIRD_WITH_EVIDENCE-TEST_SQL_9-SHOT_EUCDISMASKPRESKLSIMTHR_QA-EXAMPLE_CTX-150_ANS-4096.txt",
+      "size_bytes": 245630
+    },
+    {
+      "path": "results/BIRD_WITH_EVIDENCE-TEST_SQL_9-SHOT_EUCDISQUESTIONMASK_QA-EXAMPLE_CTX-150_ANS-4096.txt",
+      "size_bytes": 245268
+    },
+    {
+      "path": "results/DAIL-SQL+GPT-4+self-consistency.txt",
+      "size_bytes": 109546
+    },
+    {
+      "path": "results/DAIL-SQL+GPT-4.txt",
+      "size_bytes": 109615
+    },
+    {
+      "path": "results/DAIL-SQL_with_error_aware_3_shots.txt",
+      "size_bytes": 113763
+    },
+    {
+      "path": "results/Gold_fixed.txt",
+      "size_bytes": 126050
+    },
+    {
+      "path": "results/graphix_result.txt",
+      "size_bytes": 113637
+    },
+    {
+      "path": "results/QUESTIONMASK_GPT-4_for_bird.txt",
+      "size_bytes": 1042610
+    },
+    {
+      "path": "run_dail_sql.sh",
+      "size_bytes": 1196
+    },
+    {
+      "path": "run_dail_sql_mini.sh",
+      "size_bytes": 1147
+    },
+    {
+      "path": "run_dail_sql_with_sc.sh",
+      "size_bytes": 1336
+    },
+    {
+      "path": "run_dail_sql_with_sc_mini.sh",
+      "size_bytes": 1285
+    },
+    {
+      "path": "run_for_bird.sh",
+      "size_bytes": 1300
+    },
+    {
+      "path": "run_the_project.txt",
+      "size_bytes": 775
+    },
+    {
+      "path": "schema_linking/test_GloVe.py",
+      "size_bytes": 2999
+    },
+    {
+      "path": "simple_cache/metadata.json",
+      "size_bytes": 115
+    },
+    {
+      "path": "simple_cache/training_embeddings.npy",
+      "size_bytes": 21504128
+    },
+    {
+      "path": "simple_cache/training_pairs.json",
+      "size_bytes": 1809362
+    },
+    {
+      "path": "simple_selector.py",
+      "size_bytes": 3932
+    },
+    {
+      "path": "test_validation/analyze_failures.py",
+      "size_bytes": 4800
+    },
+    {
+      "path": "test_validation/empty_test/empty_vs_mismatch.txt",
+      "size_bytes": 638
+    },
+    {
+      "path": "test_validation/empty_test/find_empty_vs_mismatch.py",
+      "size_bytes": 2721
+    },
+    {
+      "path": "test_validation/empty_test/mismatched_ids.py",
+      "size_bytes": 887
+    },
+    {
+      "path": "test_validation/older/src/cal_token.py",
+      "size_bytes": 711
+    },
+    {
+      "path": "test_validation/older/src/check_type/check_function.py",
+      "size_bytes": 3005
+    },
+    {
+      "path": "test_validation/older/src/check_type/check_round.py",
+      "size_bytes": 1872
+    },
+    {
+      "path": "test_validation/older/src/check_type/__pycache__/check_function.cpython-38.pyc",
+      "size_bytes": 2129
+    },
+    {
+      "path": "test_validation/older/src/check_type/__pycache__/check_round.cpython-38.pyc",
+      "size_bytes": 1176
+    },
+    {
+      "path": "test_validation/older/src/compare_with_debug/debugging.py",
+      "size_bytes": 8690
+    },
+    {
+      "path": "test_validation/older/src/compare_with_debug/gensql/dev_gold_fixed.json",
+      "size_bytes": 368740
+    },
+    {
+      "path": "test_validation/older/src/compare_with_debug/schema.py",
+      "size_bytes": 8102
+    },
+    {
+      "path": "test_validation/older/src/compare_with_debug/tasql/dev_gold_fixed.json",
+      "size_bytes": 342949
+    },
+    {
+      "path": "test_validation/older/src/compare_with_debug/__pycache__/schema.cpython-38.pyc",
+      "size_bytes": 5708
+    },
+    {
+      "path": "test_validation/older/src/conclude_meaning.py",
+      "size_bytes": 4761
+    },
+    {
+      "path": "test_validation/older/src/connect.py",
+      "size_bytes": 3622
+    },
+    {
+      "path": "test_validation/older/src/connect_sql/conn_mysql.py",
+      "size_bytes": 0
+    },
+    {
+      "path": "test_validation/older/src/connect_sql/conn_postgresql.py",
+      "size_bytes": 1100
+    },
+    {
+      "path": "test_validation/older/src/connect_sql/conn_sqlite.py",
+      "size_bytes": 0
+    },
+    {
+      "path": "test_validation/older/src/connect_sql/__pycache__/conn_postgresql.cpython-38.pyc",
+      "size_bytes": 1070
+    },
+    {
+      "path": "test_validation/older/src/correct_sql_using_schema.py",
+      "size_bytes": 20149
+    },
+    {
+      "path": "test_validation/older/src/extract/aliases.py",
+      "size_bytes": 4250
+    },
+    {
+      "path": "test_validation/older/src/extract/columns.py",
+      "size_bytes": 25531
+    },
+    {
+      "path": "test_validation/older/src/extract/extract_table.py",
+      "size_bytes": 535
+    },
+    {
+      "path": "test_validation/older/src/extract/groupby_condition.py",
+      "size_bytes": 10023
+    },
+    {
+      "path": "test_validation/older/src/extract/having.py",
+      "size_bytes": 3561
+    },
+    {
+      "path": "test_validation/older/src/extract/join_conditions.bak.py",
+      "size_bytes": 29193
+    },
+    {
+      "path": "test_validation/older/src/extract/join_conditions.py",
+      "size_bytes": 19655
+    },
+    {
+      "path": "test_validation/older/src/extract/struct.py",
+      "size_bytes": 5518
+    },
+    {
+      "path": "test_validation/older/src/extract/subquery.py",
+      "size_bytes": 2174
+    },
+    {
+      "path": "test_validation/older/src/extract/where.py",
+      "size_bytes": 7376
+    },
+    {
+      "path": "test_validation/older/src/extract/where_condition.py",
+      "size_bytes": 9670
+    },
+    {
+      "path": "test_validation/older/src/extract/__pycache__/aliases.cpython-38.pyc",
+      "size_bytes": 2363
+    },
+    {
+      "path": "test_validation/older/src/extract/__pycache__/columns.cpython-38.pyc",
+      "size_bytes": 14848
+    },
+    {
+      "path": "test_validation/older/src/extract/__pycache__/extract_table.cpython-38.pyc",
+      "size_bytes": 455
+    },
+    {
+      "path": "test_validation/older/src/extract/__pycache__/groupby_condition.cpython-38.pyc",
+      "size_bytes": 3888
+    },
+    {
+      "path": "test_validation/older/src/extract/__pycache__/having.cpython-38.pyc",
+      "size_bytes": 1953
+    },
+    {
+      "path": "test_validation/older/src/extract/__pycache__/join_conditions.cpython-38.pyc",
+      "size_bytes": 13608
+    },
+    {
+      "path": "test_validation/older/src/extract/__pycache__/struct.cpython-38.pyc",
+      "size_bytes": 4655
+    },
+    {
+      "path": "test_validation/older/src/extract/__pycache__/subquery.cpython-38.pyc",
+      "size_bytes": 1892
+    },
+    {
+      "path": "test_validation/older/src/extract/__pycache__/where.cpython-38.pyc",
+      "size_bytes": 3622
+    },
+    {
+      "path": "test_validation/older/src/extract/__pycache__/where_condition.cpython-38.pyc",
+      "size_bytes": 3506
+    },
+    {
+      "path": "test_validation/older/src/fix_error.py",
+      "size_bytes": 20330
+    },
+    {
+      "path": "test_validation/older/src/fix_spider.py",
+      "size_bytes": 3588
+    },
+    {
+      "path": "test_validation/older/src/llm2.py",
+      "size_bytes": 6257
+    },
+    {
+      "path": "test_validation/older/src/modules.py",
+      "size_bytes": 48734
+    },
+    {
+      "path": "test_validation/older/src/modules_all_ds.py",
+      "size_bytes": 107421
+    },
+    {
+      "path": "test_validation/older/src/prompt_bank.py",
+      "size_bytes": 4816
+    },
+    {
+      "path": "test_validation/older/src/remove/KeywordFixer.py",
+      "size_bytes": 5440
+    },
+    {
+      "path": "test_validation/older/src/remove/remove_join.py",
+      "size_bytes": 7137
+    },
+    {
+      "path": "test_validation/older/src/remove/__pycache__/remove_join.cpython-38.pyc",
+      "size_bytes": 7334
+    },
+    {
+      "path": "test_validation/older/src/tests/aliases_test.py",
+      "size_bytes": 3617
+    },
+    {
+      "path": "test_validation/older/src/tests/extract_join_test.py",
+      "size_bytes": 17899
+    },
+    {
+      "path": "test_validation/older/src/tests/join_test.py",
+      "size_bytes": 12287
+    },
+    {
+      "path": "test_validation/older/src/tests/test.py",
+      "size_bytes": 4598
+    },
+    {
+      "path": "test_validation/older/src/tests/tmp.py",
+      "size_bytes": 19662
+    },
+    {
+      "path": "test_validation/older/src/utils.py",
+      "size_bytes": 3826
+    },
+    {
+      "path": "test_validation/older/src/__pycache__/cal_token.cpython-38.pyc",
+      "size_bytes": 1131
+    },
+    {
+      "path": "test_validation/older/src/__pycache__/connect.cpython-38.pyc",
+      "size_bytes": 2623
+    },
+    {
+      "path": "test_validation/older/src/__pycache__/correct_sql_using_schema.cpython-38.pyc",
+      "size_bytes": 10562
+    },
+    {
+      "path": "test_validation/older/src/__pycache__/llm.cpython-312.pyc",
+      "size_bytes": 3336
+    },
+    {
+      "path": "test_validation/older/src/__pycache__/llm.cpython-38.pyc",
+      "size_bytes": 1873
+    },
+    {
+      "path": "test_validation/older/src/__pycache__/llm2.cpython-312.pyc",
+      "size_bytes": 6354
+    },
+    {
+      "path": "test_validation/older/src/__pycache__/llm2.cpython-38.pyc",
+      "size_bytes": 4076
+    },
+    {
+      "path": "test_validation/older/src/__pycache__/modules.cpython-38.pyc",
+      "size_bytes": 28825
+    },
+    {
+      "path": "test_validation/older/src/__pycache__/modules_all_ds.cpython-312.pyc",
+      "size_bytes": 112598
+    },
+    {
+      "path": "test_validation/older/src/__pycache__/modules_all_ds.cpython-38.pyc",
+      "size_bytes": 63738
+    },
+    {
+      "path": "test_validation/older/src/__pycache__/prompt_bank.cpython-312.pyc",
+      "size_bytes": 4965
+    },
+    {
+      "path": "test_validation/older/src/__pycache__/prompt_bank.cpython-38.pyc",
+      "size_bytes": 4930
+    },
+    {
+      "path": "test_validation/older/src/__pycache__/utils.cpython-38.pyc",
+      "size_bytes": 3043
+    },
+    {
+      "path": "test_validation/run_validation_all.py",
+      "size_bytes": 14801
+    },
+    {
+      "path": "test_validation/run_validation_v2.py",
+      "size_bytes": 5896
+    },
+    {
+      "path": "test_validation/test_word_generation.py",
+      "size_bytes": 2577
+    },
+    {
+      "path": "test_validation/validation_report_v2.json",
+      "size_bytes": 48950
+    },
+    {
+      "path": "test_validation/__pycache__/execution.cpython-312.pyc",
+      "size_bytes": 1515
+    },
+    {
+      "path": "test_validation/__pycache__/execution.cpython-38.pyc",
+      "size_bytes": 1025
+    },
+    {
+      "path": "test_validation/__pycache__/logic_checks.cpython-312.pyc",
+      "size_bytes": 8071
+    },
+    {
+      "path": "test_validation/__pycache__/logic_checks.cpython-38.pyc",
+      "size_bytes": 4511
+    },
+    {
+      "path": "test_validation/__pycache__/schema_loader.cpython-312.pyc",
+      "size_bytes": 5249
+    },
+    {
+      "path": "test_validation/__pycache__/schema_loader.cpython-38.pyc",
+      "size_bytes": 3020
+    },
+    {
+      "path": "test_validation/__pycache__/sql_utils.cpython-312.pyc",
+      "size_bytes": 7567
+    },
+    {
+      "path": "test_validation/__pycache__/sql_utils.cpython-38.pyc",
+      "size_bytes": 4064
+    },
+    {
+      "path": "test_validation/__pycache__/sql_validator_v2.cpython-310.pyc",
+      "size_bytes": 12065
+    },
+    {
+      "path": "test_validation/__pycache__/sql_validator_v2.cpython-312.pyc",
+      "size_bytes": 65895
+    },
+    {
+      "path": "test_validation/__pycache__/sql_validator_v2.cpython-38.pyc",
+      "size_bytes": 43930
+    },
+    {
+      "path": "test_validation/__pycache__/__init__.cpython-312.pyc",
+      "size_bytes": 411
+    },
+    {
+      "path": "test_validation/__pycache__/__init__.cpython-38.pyc",
+      "size_bytes": 395
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/build.xml",
+      "size_bytes": 6103
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/CoreNLP-to-HTML.xsl",
+      "size_bytes": 5477
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/corenlp.sh",
+      "size_bytes": 871
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/ejml-0.23-src.zip",
+      "size_bytes": 1227451
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/ejml-0.23.jar",
+      "size_bytes": 211938
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/input.txt",
+      "size_bytes": 89
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/input.txt.xml",
+      "size_bytes": 19868
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/javax.activation-api-1.2.0-sources.jar",
+      "size_bytes": 78896
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/javax.activation-api-1.2.0.jar",
+      "size_bytes": 56674
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/javax.json-api-1.0-sources.jar",
+      "size_bytes": 54860
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/javax.json.jar",
+      "size_bytes": 85147
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/jaxb-api-2.4.0-b180830.0359-sources.jar",
+      "size_bytes": 270926
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/jaxb-api-2.4.0-b180830.0359.jar",
+      "size_bytes": 128032
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/jaxb-core-2.3.0.1-sources.jar",
+      "size_bytes": 345974
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/jaxb-core-2.3.0.1.jar",
+      "size_bytes": 254858
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/jaxb-impl-2.4.0-b180830.0438-sources.jar",
+      "size_bytes": 1132702
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/jaxb-impl-2.4.0-b180830.0438.jar",
+      "size_bytes": 1099271
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/joda-time-2.9-sources.jar",
+      "size_bytes": 774317
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/joda-time.jar",
+      "size_bytes": 629506
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/jollyday-0.4.9-sources.jar",
+      "size_bytes": 196945
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/jollyday.jar",
+      "size_bytes": 213591
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/LIBRARY-LICENSES",
+      "size_bytes": 1667
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/LICENSE.txt",
+      "size_bytes": 35147
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/Makefile",
+      "size_bytes": 769
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/patterns/example.properties",
+      "size_bytes": 11893
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/patterns/goldnames.txt",
+      "size_bytes": 1053
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/patterns/goldplaces.txt",
+      "size_bytes": 19
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/patterns/names.txt",
+      "size_bytes": 44
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/patterns/otherpeople.txt",
+      "size_bytes": 33
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/patterns/places.txt",
+      "size_bytes": 24
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/patterns/presidents.txt",
+      "size_bytes": 46181
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/patterns/stopwords.txt",
+      "size_bytes": 1313
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/pom-java-11.xml",
+      "size_bytes": 6279
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/pom.xml",
+      "size_bytes": 6135
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/protobuf.jar",
+      "size_bytes": 1347123
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/README.txt",
+      "size_bytes": 4262
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/RESOURCE-LICENSES",
+      "size_bytes": 367
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/SemgrexDemo.java",
+      "size_bytes": 2445
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/ShiftReduceDemo.java",
+      "size_bytes": 1828
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/slf4j-api.jar",
+      "size_bytes": 32127
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/slf4j-simple.jar",
+      "size_bytes": 10712
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/stanford-corenlp-3.9.2-javadoc.jar",
+      "size_bytes": 9687426
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/stanford-corenlp-3.9.2-models.jar",
+      "size_bytes": 362565193
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/stanford-corenlp-3.9.2-sources.jar",
+      "size_bytes": 5370905
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/stanford-corenlp-3.9.2.jar",
+      "size_bytes": 8146873
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/StanfordCoreNlpDemo.java",
+      "size_bytes": 7240
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/StanfordDependenciesManual.pdf",
+      "size_bytes": 199885
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/sutime/british.sutime.txt",
+      "size_bytes": 227
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/sutime/defs.sutime.txt",
+      "size_bytes": 6624
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/sutime/english.holidays.sutime.txt",
+      "size_bytes": 1274
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/sutime/english.sutime.txt",
+      "size_bytes": 36534
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/sutime/spanish.sutime.txt",
+      "size_bytes": 2124
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/tokensregex/color.input.txt",
+      "size_bytes": 42
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/tokensregex/color.properties",
+      "size_bytes": 103
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/tokensregex/color.rules.txt",
+      "size_bytes": 1373
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/tokensregex/retokenize.txt",
+      "size_bytes": 1011
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/xom-1.2.10-src.jar",
+      "size_bytes": 672122
+    },
+    {
+      "path": "third_party/stanford-corenlp-full-2018-10-05/xom.jar",
+      "size_bytes": 313253
+    },
+    {
+      "path": "utils/datasets/__pycache__/spider.cpython-38.pyc",
+      "size_bytes": 4078
+    },
+    {
+      "path": "utils/linking_utils/__pycache__/abstract_preproc.cpython-312.pyc",
+      "size_bytes": 2389
+    },
+    {
+      "path": "utils/linking_utils/__pycache__/abstract_preproc.cpython-38.pyc",
+      "size_bytes": 2075
+    },
+    {
+      "path": "utils/linking_utils/__pycache__/application.cpython-312.pyc",
+      "size_bytes": 6005
+    },
+    {
+      "path": "utils/linking_utils/__pycache__/application.cpython-38.pyc",
+      "size_bytes": 4109
+    },
+    {
+      "path": "utils/linking_utils/__pycache__/corenlp.cpython-312.pyc",
+      "size_bytes": 3036
+    },
+    {
+      "path": "utils/linking_utils/__pycache__/corenlp.cpython-38.pyc",
+      "size_bytes": 1839
+    },
+    {
+      "path": "utils/linking_utils/__pycache__/serialization.cpython-38.pyc",
+      "size_bytes": 1109
+    },
+    {
+      "path": "utils/linking_utils/__pycache__/spider_match_utils.cpython-312.pyc",
+      "size_bytes": 11862
+    },
+    {
+      "path": "utils/linking_utils/__pycache__/spider_match_utils.cpython-38.pyc",
+      "size_bytes": 7062
+    },
+    {
+      "path": "utils/mysql_post_process.py",
+      "size_bytes": 2686
+    },
+    {
+      "path": "utils/__pycache__/data_builder.cpython-312.pyc",
+      "size_bytes": 15565
+    },
+    {
+      "path": "utils/__pycache__/data_builder.cpython-38.pyc",
+      "size_bytes": 10252
+    },
+    {
+      "path": "utils/__pycache__/enums.cpython-312.pyc",
+      "size_bytes": 3091
+    },
+    {
+      "path": "utils/__pycache__/enums.cpython-38.pyc",
+      "size_bytes": 2872
+    },
+    {
+      "path": "utils/__pycache__/linking_process.cpython-312.pyc",
+      "size_bytes": 14819
+    },
+    {
+      "path": "utils/__pycache__/linking_process.cpython-313.pyc",
+      "size_bytes": 15496
+    },
+    {
+      "path": "utils/__pycache__/linking_process.cpython-38.pyc",
+      "size_bytes": 8650
+    },
+    {
+      "path": "utils/__pycache__/post_process.cpython-312.pyc",
+      "size_bytes": 11258
+    },
+    {
+      "path": "utils/__pycache__/post_process.cpython-38.pyc",
+      "size_bytes": 7718
+    },
+    {
+      "path": "utils/__pycache__/pretrained_embeddings.cpython-312.pyc",
+      "size_bytes": 9457
+    },
+    {
+      "path": "utils/__pycache__/pretrained_embeddings.cpython-38.pyc",
+      "size_bytes": 9251
+    },
+    {
+      "path": "utils/__pycache__/utils.cpython-312.pyc",
+      "size_bytes": 31036
+    },
+    {
+      "path": "utils/__pycache__/utils.cpython-38.pyc",
+      "size_bytes": 17843
+    },
+    {
+      "path": "__pycache__/api_server.cpython-312.pyc",
+      "size_bytes": 67427
+    },
+    {
+      "path": "__pycache__/api_server.cpython-38.pyc",
+      "size_bytes": 49417
+    },
+    {
+      "path": "__pycache__/ask_llm_with_validation.cpython-312.pyc",
+      "size_bytes": 11448
+    },
+    {
+      "path": "__pycache__/create_masked_cache.cpython-38.pyc",
+      "size_bytes": 6856
+    },
+    {
+      "path": "__pycache__/embedding_cache_manager.cpython-38.pyc",
+      "size_bytes": 8036
+    },
+    {
+      "path": "__pycache__/real_dail_sql_server.cpython-312.pyc",
+      "size_bytes": 20563
+    }
+  ]
+}

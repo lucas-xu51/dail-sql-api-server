@@ -4,8 +4,6 @@
 Thumbs.db
 
 # --- Project data and cache ---
-dataset/
-vector_cache/
 third_party/
 
 # --- Python build / cache ---

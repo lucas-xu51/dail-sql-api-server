@@ -2,6 +2,7 @@ import abc
 import functools
 import os
 import time
+from pathlib import Path
 
 import bpemb
 import corenlp
@@ -86,7 +87,7 @@ class NLTKLemmatizer(Embedder):
 class GloVe(Embedder):
 
     def __init__(self, kind, lemmatize=False):
-        cache = os.path.join(os.environ.get('CACHE_DIR', os.getcwd()), 'vector_cache')
+        cache = os.path.join(os.environ.get('CACHE_DIR', str(Path(__file__).resolve().parents[1])), 'vector_cache')
         self.glove = torchtext.vocab.GloVe(name=kind, cache=cache)
         self.dim = self.glove.dim
         self.vectors = self.glove.vectors

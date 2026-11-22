@@ -15,6 +15,7 @@ Usage:
 import json
 import numpy as np
 import os
+from pathlib import Path
 from sentence_transformers import SentenceTransformer
 from tqdm import tqdm
 import time
@@ -94,9 +95,10 @@ def create_masked_cache():
     print("Preserving EUCDISQUESTIONMASK functionality with caching performance\n")
     
     # File paths
-    train_file = './dataset/spider/train_spider.json'
-    schema_linking_file = './dataset/spider/enc/train_schema-linking.jsonl'
-    output_dir = './vector_cache'
+    repo_root = Path(__file__).resolve().parent
+    train_file = repo_root / 'dataset' / 'spider' / 'train_spider.json'
+    schema_linking_file = repo_root / 'dataset' / 'spider' / 'enc' / 'train_schema-linking.jsonl'
+    output_dir = repo_root / 'vector_cache'
     
     # Ensure output directory exists
     os.makedirs(output_dir, exist_ok=True)

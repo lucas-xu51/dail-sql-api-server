@@ -2,6 +2,9 @@ import numpy as np
 import random
 import os
 import json
+from pathlib import Path
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
 from utils.utils import sql2skeleton, jaccard_similarity
 from utils.linking_utils.application import mask_question_with_schema_linking
@@ -544,7 +547,7 @@ class MaskedCachedExampleSelector(object):
         self.value_token = "<unk>"   # Values (numbers, cells)
         
         # Load precomputed masked embeddings cache
-        cache_file = './vector_cache/masked_embeddings_cache.npz'
+        cache_file = PROJECT_ROOT / 'vector_cache' / 'masked_embeddings_cache.npz'
         if not os.path.exists(cache_file):
             raise FileNotFoundError(
                 f"Masked cache file not found: {cache_file}\n"
@@ -566,7 +569,7 @@ class MaskedCachedExampleSelector(object):
         print(f"Mask tokens: {self.mask_token} (schema), {self.value_token} (values)")
         
         # Load training data for results
-        train_file = './dataset/spider/train_spider.json'
+        train_file = PROJECT_ROOT / 'dataset' / 'spider' / 'train_spider.json'
         with open(train_file, 'r', encoding='utf-8') as f:
             self.train_json = json.load(f)
         

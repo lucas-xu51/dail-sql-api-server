@@ -4,6 +4,7 @@
 import sqlite3
 import re
 import json
+from pathlib import Path
 from collections import defaultdict
 from typing import Set, List, Tuple, Dict, Optional, Optional
 from difflib import SequenceMatcher
@@ -1610,9 +1611,24 @@ class ImprovedSQLValidator:
             return sql, "Cannot find SELECT clause to add DISTINCT"
 
 
+def _sample_database_paths():
+    """Locate the optional Spider example database relative to this repository."""
+    db_dir = Path(__file__).resolve().parents[1] / 'dataset' / 'spider' / 'database' / 'car_1'
+    database = db_dir / 'car_1.sqlite'
+    if not database.is_file():
+        raise FileNotFoundError(
+            f"Spider test database not found: {database}. "
+            "Install the Spider dataset under dataset/spider/database before running this example."
+        )
+    # Schema SQL is optional: FK metadata can also be read directly from SQLite.
+    schema_file = next((candidate for candidate in (
+        db_dir / 'schema.sql', db_dir / 'car_1.sql'
+    ) if candidate.is_file()), None)
+    return str(database), str(schema_file) if schema_file else None
+
+
 def main():
-    db_path = r'C:\Users\grizz\Downloads\postsqlfix-1BD2\database\spider\car_1\car_1.sqlite'
-    schema_sql_path = r'C:\Users\grizz\Downloads\postsqlfix-1BD2\database\spider\car_1\car_1.sql'
+    db_path, schema_sql_path = _sample_database_paths()
     
     # 测试用例 - 包含可自动修复的错误
     test_sqls = [
@@ -1664,8 +1680,7 @@ def main():
 
 def test_auto_fix_showcase():
     """展示自动修复功能的各种场景"""
-    db_path = r'C:\Users\grizz\Downloads\postsqlfix-1BD2\database\spider\car_1\car_1.sqlite'
-    schema_sql_path = r'C:\Users\grizz\Downloads\postsqlfix-1BD2\database\spider\car_1\car_1.sql'
+    db_path, schema_sql_path = _sample_database_paths()
     
     validator = ImprovedSQLValidator(db_path, schema_sql_path)
     

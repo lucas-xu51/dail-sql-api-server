@@ -45,7 +45,7 @@ class BasicDataset(object):
     def get_tables(self, db_id):
         if self.databases is None:
             self.databases = dict()
-            table_json_path = r'C:\Users\grizz\OneDrive\Desktop\COSC448\ideas\model\DAIL-SQL\dataset\spider\tables.json'
+            table_json_path = self.table_json
             if os.path.exists(table_json_path):
                 with open(table_json_path, 'r', encoding='utf-8') as f:
                     tables = json.load(f)

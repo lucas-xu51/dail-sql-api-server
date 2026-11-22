@@ -19,13 +19,21 @@ import sys
 import json
 import time
 import traceback
+from pathlib import Path
 import numpy as np
 from typing import List, Optional, Dict, Any
 from datetime import datetime
 
+# Resolve project assets relative to the backend repository, not the shell's CWD.
+PROJECT_ROOT = Path(__file__).resolve().parent
+
+def _resolve_project_path(value):
+    path = Path(value).expanduser()
+    return str((path if path.is_absolute() else PROJECT_ROOT / path).resolve())
+
 # Manually load .env file
 def load_env():
-    env_path = '.env'
+    env_path = PROJECT_ROOT / '.env'
     if os.path.exists(env_path):
         with open(env_path, 'r', encoding='utf-8') as f:
             for line in f:
@@ -43,10 +51,9 @@ import uvicorn
 import sqlite3
 import shutil
 import tempfile
-from pathlib import Path
-
 # Add project path
-sys.path.append('./')
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
 # Import DAIL-SQL core components
 from utils.linking_process import SpiderEncoderV2Preproc
@@ -205,12 +212,12 @@ class DAILSQLProcessor:
                  dataset_dir: str = "./dataset",
                  db_dir: str = "./dataset/spider/database",
                  openai_api_key: str = None):
-        self.dataset_dir = dataset_dir
-        self.db_dir = db_dir
+        self.dataset_dir = _resolve_project_path(dataset_dir)
+        self.db_dir = _resolve_project_path(db_dir)
         self.openai_api_key = openai_api_key or os.getenv("OPENAI_API_KEY")
         
         # User uploaded database directory
-        self.custom_db_dir = "./dataset/custom_databases"
+        self.custom_db_dir = os.path.join(self.dataset_dir, "custom_databases")
         self.custom_tables_file = os.path.join(self.custom_db_dir, "custom_tables.json")
         
         # Ensure custom database directory exists

@@ -1,3 +1,4 @@
+# DAIL-SQL core dependencies
 protobuf==3.20.*
 tqdm
 openai
@@ -11,3 +12,13 @@ torchtext
 sentence_transformers
 attrs
 nltk
+
+# FastAPI server and supporting dependencies
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+pydantic>=2.7.0
+python-dotenv
+requests==2.31.0
+httpx==0.25.2
+networkx
+python-multipart

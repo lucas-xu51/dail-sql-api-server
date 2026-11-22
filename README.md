@@ -1,145 +1,97 @@
 # DAIL-SQL Backend Server
 
-A FastAPI backend for the NL2SQL VS Code extension. It adapts DAIL-SQL prompt construction, schema linking, few-shot retrieval, SQL validation, and corrective prompting for an interactive natural-language-to-SQL workflow.
+A FastAPI backend for the NL2SQL VS Code extension, built on **DAIL-SQL**. It supports schema linking, few-shot example retrieval, prompt construction, SQL validation, and corrective prompting for natural-language-to-SQL workflows.
 
-The backend and the VS Code extension are maintained as **separate repositories**. The extension handles the user interface, database connections, SQL execution, and GitHub Copilot or Kimi model calls. This server handles DAIL-SQL preparation and server-side validation, with an additional standalone text-to-SQL endpoint.
+The backend and the VS Code extension are maintained in separate repositories. The extension provides the interface, database connections, SQL execution, and GitHub Copilot or Kimi model integration. The backend handles DAIL-SQL processing and validation.
 
-**Companion frontend repository:** `ADD_CURRENT_FRONTEND_REPOSITORY_URL` (replace with the new repository URL; the previous link has been removed).
-
-## Architecture
+## Workflow
 
 ```text
-VS Code extension
-    | POST /api/v1/tokenize
-    | POST /api/v1/generate-prompt
-    |                        DAIL-SQL backend
-    |                    schema linking / few-shot retrieval
-    |<------------------- prompt + session_id
-    |
-    |---- GitHub Copilot or Kimi API (model generation in the extension)
-    |
-    | POST /api/v1/validate-sql
-    |<------------------- validation result / correction prompt
-    |
-    +---- editable SQL, optional database execution, and experiment logs
+Natural-language question (VS Code extension)
+              |
+              v
+    DAIL-SQL backend
+    - Schema linking
+    - Few-shot retrieval
+    - Prompt construction
+              |
+              v
+    GitHub Copilot / Kimi
+    (SQL generation in the extension)
+              |
+              v
+    Backend SQL validation
+    and optional correction
+              |
+              v
+    Editable SQL and optional execution
+    in the VS Code extension
 ```
 
-The server also provides `POST /api/v1/text-to-sql` for its own model-driven pipeline. That endpoint is distinct from the extension's Copilot/Kimi integration.
+## Prerequisites
 
-## API
+- **Python 3.8** (the original project's target version)
+- **Conda** (recommended)
+- **Java** for Stanford CoreNLP
 
-All endpoints below use the `/api/v1` prefix.
+## Installation
 
-| Method | Endpoint | Purpose |
-| --- | --- | --- |
-| `GET` | `/health` | Service health check |
-| `POST` | `/tokenize` | Produce backend-aligned question tokens for schema/value linking |
-| `POST` | `/generate-prompt` | Construct a DAIL-SQL prompt and create a validation session |
-| `POST` | `/validate-sql` | Validate a candidate SQL query and optionally return a corrective prompt |
-| `POST` | `/encode` | Encode texts into embeddings |
-| `POST` | `/upload-database` | Upload a SQLite database for server-side use |
-| `GET` | `/databases` | List databases known to the backend |
-| `POST` | `/text-to-sql` | Run the backend's complete text-to-SQL pipeline |
-
-FastAPI interactive API documentation is available at `http://localhost:8000/docs` while the server is running.
-
-SQL validation includes syntax, logical/schema, and, when a database can be loaded, execution-related checks. In schema-only mode, the server skips execution validation. Therefore, a successful schema-only validation does not establish that SQL will execute correctly or answer the user's question.
-
-## Requirements
-
-The original environment targeted Python 3.8 and Conda. Dependency compatibility with other Python versions has not been verified. Java is required for the Stanford CoreNLP component; the model/embedding stack also has additional installation and download requirements.
-
-Install the backend Python dependencies from the repository root:
+Create and activate a Python environment from the backend repository root:
 
 ```bash
 conda create -n DAIL-SQL python=3.8
 conda activate DAIL-SQL
 python -m pip install --upgrade pip
 pip install -r requirements.txt
-pip install -r requirements-api.txt
-pip install networkx python-multipart
-python nltk_downloader.py
 ```
 
-`networkx` is imported by `api_server.py`, and `python-multipart` is needed for the FastAPI file-upload/form endpoint, but neither was listed in the supplied requirement files. The commands above address those immediate gaps; they have not been confirmed by an end-to-end installation test. In particular, `torch`, `torchtext`, and other NLP dependencies may require mutually compatible versions.
+All Python dependencies are listed in a single `requirements.txt`. The separate `requirements-api.txt` is no longer needed after replacing the original requirements file with the merged version.
+
+> **Compatibility note:** The dependency list consolidates the existing project requirements; it is not a fully pinned or independently tested environment lockfile. In particular, PyTorch and TorchText versions must be mutually compatible with the selected Python version.
 
 ### Stanford CoreNLP
 
-Place the extracted `stanford-corenlp-full-2018-10-05` directory under:
+Download Stanford CoreNLP from the [official project](https://stanfordnlp.github.io/CoreNLP/) and place the extracted `stanford-corenlp-full-2018-10-05` directory at:
 
 ```text
 third_party/stanford-corenlp-full-2018-10-05/
 ```
 
-Obtain the distribution from the [Stanford CoreNLP project](https://stanfordnlp.github.io/CoreNLP/), or copy the matching directory from an existing working development environment. Start it in a separate terminal:
+Start CoreNLP in a separate terminal:
 
 ```bash
 cd third_party/stanford-corenlp-full-2018-10-05
 java -mx4g -cp "*" edu.stanford.nlp.pipeline.StanfordCoreNLPServer -port 9000
 ```
 
-Return to the backend repository root before starting the Python API. The cleaned source archive does not include the CoreNLP binaries.
-
-## Data and embedding cache
-
-The DAIL-SQL retrieval path depends on training examples and, for masked embedding selection, a precomputed cache. Relevant paths include:
-
-```text
-dataset/spider/train_spider.json
-dataset/spider/enc/train_schema-linking.jsonl
-vector_cache/masked_embeddings_cache.npz
-```
-
-When both training inputs exist, the cache can be generated by:
-
-```bash
-python create_masked_cache.py
-```
-
-The generator uses `sentence-transformers/all-mpnet-base-v2`, and may download the model on its first run. The supplied cleaned backend archive contains `train_spider.json` but not `train_schema-linking.jsonl` or `masked_embeddings_cache.npz`. Supply these files from the complete dataset/cache before attempting to regenerate embeddings. Without the expected cache, parts of the prompt builder may fall back to a simplified prompt.
-
-For Spider database execution, the corresponding `dataset/spider/database/` contents and Spider metadata must also be available. Do not assume that the cleaned source archive includes those databases. The project's `dataset/` and `vector_cache/` directories are meaningful project assets, not Python build caches. If they are versioned in your current repository, ensure `.gitignore` does not exclude them.
+Then return to the backend repository root in the terminal where you will start the Python server.
 
 ## Configuration
 
-Copy `.env.example` to `.env` and edit locally:
-
-```bash
-cp .env.example .env
-```
-
-On Windows PowerShell:
+Create a local `.env` file based on the supplied example:
 
 ```powershell
 Copy-Item .env.example .env
 ```
 
-`OPENAI_API_KEY` is relevant to the backend-managed model path, particularly `/text-to-sql`. For the VS Code extension's Copilot or Kimi flow, model authentication takes place in the extension. The Kimi key is not configured in this backend `.env` file.
+The backend can read `OPENAI_API_KEY` for its own model-driven generation path. When using GitHub Copilot or Kimi through the VS Code extension, model authentication is handled by the extension instead.
 
-The current `api_server.py` entry point uses host `0.0.0.0` and port `8000` directly. Although `.env.example` lists host and port settings, the supplied launcher does not apply them dynamically. Do not commit a real `.env` or API keys.
+The server currently starts on port `8000`, as configured in `api_server.py`. Do not commit real API keys or the `.env` file to Git.
 
-## Start and check the server
+## Run the server
 
-From the backend root, with CoreNLP and the required Python dependencies available:
+With the Python environment active and CoreNLP running, start the backend from the repository root:
 
 ```bash
 python api_server.py
 ```
 
-Check the service from another terminal:
+The default server address is `http://localhost:8000`. Start the backend before using server-dependent features in the VS Code extension.
 
-```bash
-curl http://localhost:8000/api/v1/health
-```
+## Notes
 
-The corresponding extension setting is `nl2sql.dailsql.apiUrl`, which defaults to `http://localhost:8000`.
-
-## Known limitations
-
-This project is a research/development implementation, not a verified production service. The latest inspected backend archive was statically reviewed, but full installation, CoreNLP integration, SQL correctness, and cross-database behavior were not retested here. The backend includes some hard-coded local paths in its data-loading utilities. Session state is held in memory and is lost when the server restarts. Prompt fallback behavior can change experimental conditions if required cache or schema-linking files are missing.
-
-No current accuracy percentage is asserted in this README. The old README's **87.5% Spider accuracy** claim lacked a referenced run configuration and reproducible evaluation artifact in the inspected source, so it is intentionally not repeated.
+This is a research/development implementation. The combined dependency file was assembled from the existing requirements files and additional packages referenced by the backend; a clean end-to-end installation and runtime test has not been performed as part of this documentation update.
 
 ## Attribution
 
-This project is built on the DAIL-SQL method. See the original research implementation at [BeachWang/DAIL-SQL](https://github.com/BeachWang/DAIL-SQL). Keep the existing repository license and applicable third-party attribution.
+This project builds on the DAIL-SQL approach. See the [original DAIL-SQL implementation](https://github.com/BeachWang/DAIL-SQL). Preserve the repository's existing license and applicable third-party attributions.
